@@ -3,3 +3,4 @@ node_modules/
 view/dist/
 view/node_modules/
 npm-debug.log
+.idea
