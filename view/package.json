@@ -15,8 +15,12 @@
   "dependencies": {
     "babel-runtime": "^6.0.0",
     "github-markdown-css": "^2.3.0",
+    "graceful-fs": "^4.1.4",
+    "lodash": "^4.13.1",
     "markdown": "^0.5.0",
     "normalize.css": "^4.2.0",
+    "source-list-map": "^0.1.6",
+    "source-map": "^0.5.6",
     "vue": "^1.0.21",
     "vue-resource": "^0.9.3",
     "vue-router": "^0.7.13"
