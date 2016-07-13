@@ -33,7 +33,7 @@ module.exports = {
             } else {
                 if (!docs.length) { // 如果没有则添加
                     Article.find({}, function (err, docs) {
-                        var lastItemId = docs[docs.length - 1].id;
+                        var lastItemId = docs[docs.length - 1].id || 0;
                         article = new Article({
                             id: lastItemId + 1,
                             author: options.author,
