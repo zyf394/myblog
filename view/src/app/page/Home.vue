@@ -2,11 +2,6 @@
     <header-component></header-component>
     <content-component></content-component>
 </template>
-<style>
-  body {
-    background-color: #ff0000;
-  }
-</style>
 <script type="text/ecmascript-6">
   import HeaderComponent from '../components/Header'
   import ContentComponent from '../components/Content'

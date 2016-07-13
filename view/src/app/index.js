@@ -13,8 +13,7 @@ Vue.filter('formatTime', function (value) {
 })
 
 const router = new VueRouter({
-  history: true,
-  hashbang: false
+  history: false
 })
 
 configRouter(router)

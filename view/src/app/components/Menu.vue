@@ -48,7 +48,6 @@
         this.menuOpen = !this.menuOpen
       },
       routeOut: function () {
-        console.log('route')
         this.menuOpen = false
       }
     }
