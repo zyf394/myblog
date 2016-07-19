@@ -17,7 +17,7 @@
   </div>
 </template>
 <script type="text/ecmascript-6">
-  import {markdown} from 'markdown'
+  import showdown from 'showdown'
 
   export default{
     data () {
@@ -32,7 +32,7 @@
       getArticles () {
         var me = this
         this.$http.post('/api/article', {}).then((response) => {
-          var resData = JSON.parse(response.data)
+          var resData = response.data
           if (resData.length) {
             me.articles = resData
           }
@@ -43,8 +43,9 @@
       },
       markedContent: function ($index) {
         var me = this
+        var converter = new showdown.Converter({tables: true})
         var markedContent = me.articles[$index].content || ''
-        return me.delHtmlTag(markdown.toHTML(markedContent))
+        return me.delHtmlTag(converter.makeHtml(markedContent))
       },
       delHtmlTag: function (str) { // 去掉所有的html标记
         return str.replace(/<[^>]+>/g, '')

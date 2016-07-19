@@ -12,6 +12,15 @@
         <section class="content-edit">
           <textarea placeholder="输入文章内容"
                     v-on:input="inputContent">{{article.content}}</textarea>
+          <div class="upload-btn">
+            <input
+              id="upload"
+              type="file"
+              multiple="multiple"
+              accept="image/png,image/gif,image/jpg,image/jpeg,image/img"
+              name="file"
+              v-on:change="fileUpload"/>
+          </div>
         </section>
         <section class="content-preview">
           <div class="wrap">
@@ -23,7 +32,8 @@
   </main>
 </template>
 <script type="text/ecmascript-6">
-  import {markdown} from 'markdown'
+  import showdown from 'showdown'
+  import hljs from 'highlight.js'
 
   export default{
     data () {
@@ -34,6 +44,13 @@
           content: '',
           status: 1
         }
+      }
+    },
+    watch: {
+      'article.content': function (val, oldVal) {
+        document.querySelectorAll('pre code').forEach(block => {
+          hljs.highlightBlock(block)
+        })
       }
     },
     methods: {
@@ -53,7 +70,7 @@
           status: type === 'publish' ? 2 : 1
         }
         this.$http.post('/api/article', postData).then((response) => {
-          var resData = JSON.parse(response.data)
+          var resData = response.data
           var article
           if (me.$route.params.id) {
             article = resData[me.$route.params.id - 1]
@@ -74,7 +91,7 @@
       getArticles: function (id) {
         var me = this
         this.$http.post('/api/article', {id: id}).then((response) => {
-          var article = JSON.parse(response.data)[0]
+          var article = response.data[0]
           me.article = {
             id: article.id,
             title: article.title,
@@ -87,12 +104,30 @@
       },
       markedContent: function () {
         var me = this
+        var converter = new showdown.Converter({tables: true})
         var markedContent = me.article.content || ''
-        return markdown.toHTML(markedContent)
+        return converter.makeHtml(markedContent)
+      },
+      fileUpload (event) {
+        var me = this
+        var upload = document.getElementById('upload')
+        var files = upload.files
+        var formData = new window.FormData()
+        for (var file of files) {
+          formData.append('file', file)
+        }
+        if (files[0]) {
+          this.$http.post('/api/upload', formData).then((response) => {
+            var resData = response.data
+            var imageData = resData[0].data
+            var imageName = imageData.name
+            var imageUrl = imageData.url
+            me.article.content += `\r\n![${imageName}](${imageUrl})`
+          }, (err) => {
+            console.log(err)
+          })
+        }
       }
-    },
-    compiled: function () {
-      console.log('compiled')
     },
     ready: function () {
       let me = this
@@ -198,6 +233,7 @@
           .wrap {
             width: 100%;
             height: 100%;
+            overflow-y: scroll;
 
             h2 {
               font-size: 40px;

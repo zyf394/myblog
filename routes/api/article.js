@@ -1,22 +1,4 @@
-/**
- * Created by didi on 16/7/11.
- */
-var mongoose = require('mongoose');
-var uri = 'mongodb://localhost:27017';
-mongoose.connect(uri);
-
-var ArticleSchema = new mongoose.Schema({
-    id: Number,
-    author: String,
-    title: String,
-    content: String,
-    status: Number,
-    publishTime: Date
-});
-
-mongoose.model('Article', ArticleSchema);
-
-var Article = mongoose.model('Article');
+var Article = require('./db');
 
 module.exports = {
     save: function (res, options) {
@@ -36,11 +18,11 @@ module.exports = {
                         var lastItemId = docs[docs.length - 1] ? docs[docs.length - 1].id : 0;
                         article = new Article({
                             id: lastItemId + 1,
-                            author: options.author,
-                            title: options.title,
-                            content: options.content,
-                            status: options.status,
-                            publishTime: new Date()
+                            author: options.author || 'shuiyi',
+                            title: options.title || '',
+                            content: options.content || '',
+                            status: options.status || 1,
+                            publishTime: options.publishTime || new Date()
                         });
                         article.save(function (err) {
                             if (err) {
@@ -92,6 +74,9 @@ module.exports = {
                     status: item.status,
                     publishTime: item.publishTime
                 }
+            });
+            res.writeHead(200, {
+                'Content-Type': 'application/json;charset=UTF-8'
             });
             res.end(JSON.stringify(newDocs))
         }

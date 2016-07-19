@@ -14,7 +14,7 @@
   </main>
 </template>
 <script type="text/ecmascript-6">
-  import {markdown} from 'markdown'
+  import showdown from 'showdown'
 
   export default{
     data () {
@@ -32,9 +32,10 @@
       getArticles (id) {
         var me = this
         this.$http.post('/api/article', {id: id}).then((response) => {
-          var resData = JSON.parse(response.data)
+          var resData = response.data
+          console.log(response)
           if (resData.length) {
-            me.article = JSON.parse(response.data)[0]
+            me.article = response.data[0]
           } else {
             this.hasArticle = false
           }
@@ -45,8 +46,9 @@
       },
       markedContent: function () {
         var me = this
+        var converter = new showdown.Converter({tables: true})
         var markedContent = me.article.content || ''
-        return markdown.toHTML(markedContent)
+        return converter.makeHtml(markedContent)
       }
     },
     ready: function () {
@@ -64,10 +66,9 @@
     padding: 1rem;
     width: 80%;
     max-width: 710px;
-    margin: 4rem auto;
+    margin: 2rem auto;
 
     .wrap{
-      margin-top: 2rem;
 
       header{
         margin-bottom: 2rem;

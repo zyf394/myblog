@@ -7,16 +7,19 @@
 
 <script>
   import NavComponent from './components/Nav'
-
   export default {
     components: {
       NavComponent
+    },
+    ready () {
+      console.log('ready')
     }
   }
 </script>
 
-<style lang="less">
+<style>
   @import "../../bower_components/HTML5-Reset/assets/css/reset.css";
+  @import "../../node_modules/highlight.js/styles/default.css";
   @import "../assets/iconfont.css";
   html {
     width: 100%;

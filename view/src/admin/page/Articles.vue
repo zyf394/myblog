@@ -17,7 +17,7 @@
       getArticles: function () {
         var me = this
         this.$http.post('/api/article', {}).then((response) => {
-          me.articles = JSON.parse(response.data)
+          me.articles = response.data
         },
           (err) => {
             console.log(err)

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8"/>
+    <title>《图解HTTP》读书笔记 - 水乙 - 博客园</title>
+    <link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=umTYGJ1Xbo61obX_Gqsil3krUSBXOilTLax6nesdN401"/>
+    <link id="MainCss" type="text/css" rel="stylesheet" href="/skins/BlackLowKey/bundle-BlackLowKey.css?v=B7-m2NxlKbJ6xN_kGRXgbaLp9_4SHPK1jC_DQ8UbhqA1"/>
+    <link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/shuiyi/rss"/>
+    <link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/shuiyi/rsd.xml"/>
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/shuiyi/wlwmanifest.xml"/>
+    <script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">var currentBlogApp = 'shuiyi', cb_enable_mathjax=false;</script>
+    <script src="/bundles/blog-common.js?v=5U27mPu5I0KkEyh-j235bo21EbCO9CoRnrVjj5DiOjI1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+    <div id="header">
+        <div id="blogTitle">
+            <a id="lnkBlogLogo" href="http://www.cnblogs.com/shuiyi/"><img id="blogLogo" src="/Skins/custom/images/logo.gif" alt="返回主页" /></a>
+
+            <!--done-->
+            <h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/shuiyi/">文科生的前端之路</a></h1>
+            <h2></h2>
+
+
+
+
+        </div><!--end: blogTitle 博客的标题和副标题 -->
+        <div id="navigator">
+
+            <ul id="navList">
+                <li><a id="MyLinks1_HomeLink" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+                <li><a id="MyLinks1_MyHomeLink" class="menu" href="http://www.cnblogs.com/shuiyi/">首页</a></li>
+                <li><a id="MyLinks1_NewPostLink" class="menu" rel="nofollow" href="http://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+                <li><a id="MyLinks1_ContactLink" class="menu" rel="nofollow" href="http://msg.cnblogs.com/send/%E6%B0%B4%E4%B9%99">联系</a></li>
+                <li><a id="MyLinks1_Syndication" class="menu" href="http://www.cnblogs.com/shuiyi/rss">订阅</a>
+                    <!--<a id="MyLinks1_XMLLink" class="aHeaderXML" href="http://www.cnblogs.com/shuiyi/rss"><img src="http://www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+                <li><a id="MyLinks1_Admin" class="menu" rel="nofollow" href="http://i.cnblogs.com/">管理</a></li>
+            </ul>
+            <div class="blogStats">
+
+
+                <span id="stats_post_count">随笔 - 24&nbsp; </span>
+                <span id="stats_article_count">文章 - 0&nbsp; </span>
+                <span id="stats-comment_count">评论 - 47</span>
+
+
+            </div><!--end: blogStats -->
+        </div><!--end: navigator 博客导航栏 -->
+    </div><!--end: header 头部 -->
+
+    <div id="main">
+        <div id="mainContent">
+            <div class="forFlow">
+
+                <div id="post_detail">
+                    <!--done-->
+                    <div id="topics">
+                        <div class = "post">
+                            <h1 class = "postTitle">
+                                <a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/shuiyi/p/5631590.html">《图解HTTP》读书笔记</a>
+                            </h1>
+                            <div class="clear"></div>
+                            <div class="postBody">
+                                <div id="cnblogs_post_body"><p><strong>第一章：了解Web及网络基础</strong></p>
+                                    <p>现在已提出3项WWW构建技术：HTML超文本标记语言、HTTP文档传递协议、URL统一资源定位符。</p>
+                                    <p>通常使用的网络是在TCP/IP协议族的基础上运作的。HTTP属于它内部的一个子集。</p>
+                                    <p><strong>第四章：返回结果的HTTP</strong></p>
+                                    <p>状态码的类别</p>
+                                    <table border="0">
+                                        <tbody>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>类别</td>
+                                            <td>原因短语</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1xx</td>
+                                            <td>information（信息性状态码）</td>
+                                            <td>接收的请求正在处理</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2xx</td>
+                                            <td>Success（成功状态码）</td>
+                                            <td>请求正常处理完毕</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3xx</td>
+                                            <td>Redirecttion（重定向状态码）</td>
+                                            <td>需要进行附加操作以完成请求</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4xx</td>
+                                            <td>Client Error （客户端错误状态码）</td>
+                                            <td>服务器无法处理请求</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5xx</td>
+                                            <td>Server Error（服务端错误状态码）</td>
+                                            <td>服务器处理请求出错</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <p><strong>第五章：与HTTP协作的Web服务器</strong></p>
+                                    <p>即使物理层面只有一台服务器，但是只要使用虚拟主机的功能，则可以假想已经有多台服务器。</p>
+                                    <p>在相同的IP地址下，由于虚拟主机可以寄存多个不同主机名和域名的Web网站，因此在发送HTTP请求时，必须在Host首部内完整指定主机名或域名的URI。</p>
+                                    <p>代理是一种由转发功能的应用程序，它扮演了位于服务器和客户端&ldquo;中间人&rdquo;的角色，接收由客户端发送的请求并转发给服务器，同时也接收服务端返回的响应并转发给客户端。</p>
+                                    <p>网关是转发其他服务器通信数据的服务器，接收从客户端发送来的请求时，它就像自己拥有资源的源服务器一样对请求进行处理。</p>
+                                    <p>隧道是在相隔甚远的客户端和服务器之间进行中转，并保持双方通信连接的应用程序。</p>
+                                    <p><strong>第六章：HTTP首部</strong></p>
+                                    <p>通用首部字段是指，请求报文和响应报文双方都会使用的首部。包括：Cache-Control、Connection、Date、Pragma、Trialer、Transfer-Encoding、Upgrade、Via、Warning</p>
+                                    <p><strong>第七章：确保Web安全的HTTPS</strong></p>
+                                    <p>SSL采用一种叫做公开密钥加密（Public key cryptography）的加密处理方式。</p></div><div id="MySignature"></div>
+                                <div class="clear"></div>
+                                <div id="blog_post_info_block">
+                                    <div id="BlogPostCategory"></div>
+                                    <div id="EntryTag"></div>
+                                    <div id="blog_post_info">
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div id="post_next_prev"></div>
+                                </div>
+
+
+                            </div>
+                            <div class = "postDesc">posted @ <span id="post-date">2016-06-30 23:31</span> <a href='http://www.cnblogs.com/shuiyi/'>水乙</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="http://i.cnblogs.com/EditPosts.aspx?postid=5631590" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(5631590);return false;">收藏</a></div>
+                        </div>
+                        <script type="text/javascript">var allowComments=true,isLogined=false,cb_blogId=236586,cb_entryId=5631590,cb_blogApp=currentBlogApp,cb_blogUserGuid='b33773b6-192e-e511-b908-9dcfd8948a71',cb_entryCreatedDate='2016/6/30 23:31:00';loadViewCount(cb_entryId);</script>
+
+                    </div><!--end: topics 文章、评论容器-->
+                </div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+                <div id='comment_form' class='commentform'>
+                    <a name='commentform'></a>
+                    <div id='divCommentShow'></div>
+                    <div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+                    <div id='comment_form_container'></div>
+                    <div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+                    <div id='ad_t2'></div>
+                    <div id='opt_under_post'></div>
+                    <div id='ad_c1' class='c_ad_block'></div>
+                    <div id='under_post_news'></div>
+                    <div id='ad_c2' class='c_ad_block'></div>
+                    <div id='under_post_kb'></div>
+                    <div id='HistoryToday' class='c_ad_block'></div>
+                    <script type='text/javascript'>
+                        $(function () {
+                            setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+                            deliverAdT2();
+                            deliverAdC1();
+                            deliverAdC2();
+                            loadNewsAndKb();
+                            loadBlogSignature();
+                            LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+                            GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+                            loadOptUnderPost();
+                            GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+                        });
+                    </script>
+                </div>
+
+
+            </div><!--end: forFlow -->
+        </div><!--end: mainContent 主体内容容器-->
+
+        <div id="sideBar">
+            <div id="sideBarMain">
+
+                <!--done-->
+                <div class="newsItem">
+                    <h3 class="catListTitle">公告</h3>
+                    <div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+                </div>
+
+                <div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+
+                <div id="leftcontentcontainer">
+                    <div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+                </div>
+
+            </div><!--end: sideBarMain -->
+        </div><!--end: sideBar 侧边栏容器 -->
+        <div class="clear"></div>
+    </div><!--end: main -->
+    <div class="clear"></div>
+    <div id="footer">
+
+        <!--done-->
+        Copyright &copy;2016 水乙
+    </div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+</body>
+</html>
+
+
+Process finished with exit code 0

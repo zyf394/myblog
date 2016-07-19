@@ -2,7 +2,9 @@
   <main class="article-list-container">
     <section class="article-list">
       <ul>
-        <li v-for="item in articles">
+        <li v-for="item in articles"
+            v-bind:class="[item.id == $route.params.id ? 'current' : '']"
+            v-on:click="addCurrentClass" >
           <a v-link="'/articles/' + item.id">
             <section>
               <h3 class="article-title">{{item.title}}</h3>
@@ -28,12 +30,9 @@
 
   </main>
 </template>
-<style>
-  body {
-  }
-</style>
 <script type="text/ecmascript-6">
   import {markdown} from 'markdown'
+  import hljs from 'highlight.js'
 
   export default{
     props: {
@@ -47,9 +46,22 @@
         }]
       }
     },
+    watch: {
+      'articles': function (val, oldVal) {
+        document.querySelectorAll('pre code').forEach(block => {
+          hljs.highlightBlock(block)
+        })
+      }
+    },
     methods: {
       jumpToEdit: function (id) {
         window.router.go('/edit/' + id)
+      },
+      addCurrentClass (event) {
+        var currentTarget = event.currentTarget
+        var currentItem = document.querySelector('.article-list .current')
+        if (currentItem) currentItem.className = ''
+        currentTarget.className = 'current'
       },
       markedContent: function () {
         var me = this
@@ -63,9 +75,6 @@
         html += markdown.toHTML(markedContent)
         return html
       }
-    },
-    created: function () {
-      console.log('params', this.$route.params)
     }
   }
 </script>
@@ -104,7 +113,7 @@
 
               .article-title {
                 font-size: 20px;
-                height: 26px;
+                min-height: 26px;
                 margin-bottom: 6px;
               }
               .article-author {
