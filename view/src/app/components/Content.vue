@@ -5,7 +5,7 @@
         <a v-link="'/article/' + item.id">{{item.title || ''}}</a>
       </h1>
       <div class="wrap">
-        <span v-html="markedContent($index)"></span>
+        <p class="article-summary" v-html="markedContent($index)"></p>
         <a v-link="'/article/' + item.id">&gt;&gt;</a>
         <p class="article-info">
           <i class="iconfont icon-01"></i>
@@ -70,15 +70,26 @@
       padding: 3rem 0;
       border-bottom: 1px solid #e5e5e5;
       .list-title{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         margin-bottom: 0.5rem;
+        text-overflow: ellipsis;
+        white-space:nowrap;
+        overflow: hidden;
+
         a{
           color: #666;
         }
       }
       .wrap{
-        font-size: 0.6rem;
+        font-size: 1rem;
+        line-height: 1.5;
         color: #666;
+
+        .article-summary{
+          max-height: 3rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
 
         .article-info{
           margin-top: 0.5rem;
@@ -89,6 +100,9 @@
             font-size: 0.5rem;
             color: #b5b5b5;
             margin-right: 0.2rem;
+          }
+          i::before{
+            color: #308ddf;
           }
         }
       }
