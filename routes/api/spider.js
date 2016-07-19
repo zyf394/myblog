@@ -89,8 +89,8 @@ function spiderOneArticle(index) {
                     status: 1,
                     publishTime: new Date(publishTime)
                 });
-                console.log(publishTime)
                 article.save();
+                console.log('db save success:【' + title + '】成功保存到数据库')
                 spiderOneArticle(index + 1);
 
             });
