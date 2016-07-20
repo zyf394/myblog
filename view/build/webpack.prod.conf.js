@@ -91,7 +91,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         removeAttributeQuotes: true
       },
       chunksSortMode: 'dependency',
-      chunks: ["admin"]
+      chunks: ["vendor","manifest","admin"]
     })
   ]
 })
