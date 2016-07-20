@@ -20,6 +20,7 @@
 
 <style lang="less">
   @import "../../bower_components/HTML5-Reset/assets/css/reset.css";
+  @import "../../node_modules/highlight.js/styles/default.css";
   @import "../assets/iconfont.css";
   html {
     width: 100%;
@@ -29,7 +30,6 @@
   body {
     width: 100%;
     height: 100%;
-    font-family: "Helvetica Neue", Helvetica, 'Source Sans Pro',  Arial, sans-serif;
     font-weight: 100;
     -webkit-font-smoothing: antialiased;
   }

@@ -23,6 +23,7 @@
       font-size: 40px;
       font-weight: 100;
       text-align: center;
+      font-family: "Helvetica Neue", Helvetica, 'Source Sans Pro',  Arial, sans-serif;
     }
   }
 </style>

@@ -6,8 +6,8 @@
       </h1>
       <div class="wrap">
         <p class="article-summary" v-html="markedContent($index)"></p>
-        <a v-link="'/article/' + item.id">&gt;&gt;</a>
-        <p class="article-info">
+        <a v-if="item.id" v-link="'/article/' + item.id">&gt;&gt;</a>
+        <p v-if="item.id" class="article-info">
           <i class="iconfont icon-01"></i>
           {{item.author}}
           <time><i class="iconfont icon-06"></i>{{item.publishTime | formatTime}}</time>
