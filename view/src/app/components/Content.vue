@@ -6,7 +6,7 @@
       </h1>
       <div class="wrap">
         <p class="article-summary" v-html="markedContent($index)"></p>
-        <a v-if="item.id" v-link="'/article/' + item.id">&gt;&gt;</a>
+        <a class="article-arrow" v-if="item.id" v-link="'/article/' + item.id">&gt;&gt;</a>
         <p v-if="item.id" class="article-info">
           <i class="iconfont icon-01"></i>
           {{item.author}}
@@ -70,23 +70,26 @@
       padding: 3rem 0;
       border-bottom: 1px solid #e5e5e5;
       .list-title{
-        font-size: 1.2rem;
         margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: normal;
         text-overflow: ellipsis;
         white-space:nowrap;
         overflow: hidden;
 
         a{
-          color: #666;
+          color: #333;
+          font-weight: normal;
         }
       }
       .wrap{
-        font-size: 1rem;
         line-height: 1.5;
         color: #666;
 
         .article-summary{
-          max-height: 3rem;
+          font-size: 0.9rem;
+          font-weight: 100;
+          max-height: 2.7rem;
           overflow: hidden;
           text-overflow: ellipsis;
         }
@@ -95,6 +98,7 @@
           margin-top: 0.5rem;
           font-size: 0.5rem;
           color: #b5b5b5;
+          font-weight: 100;
 
           i,time{
             font-size: 0.5rem;
@@ -104,6 +108,12 @@
           i::before{
             color: #308ddf;
           }
+        }
+
+        .article-arrow{
+          font-weight: 100;
+          font-family: "Helvetica Neue", Helvetica, 'Source Sans Pro',  Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
         }
       }
     }

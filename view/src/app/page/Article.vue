@@ -82,6 +82,7 @@
         .article-title{
           font-size: 1.2rem;
           line-height: 1.5;
+          font-weight: normal;
           margin-bottom: 0.5rem;
           word-wrap: break-word;
           word-break: break-all;
@@ -89,6 +90,7 @@
         .article-info{
           font-size: 14px;
           color: #b5b5b5;
+          font-weight: 100;
 
           i{
             color: #308ddf;
@@ -103,6 +105,10 @@
 
       article{
         padding: 0.5rem 0.2rem;
+        font-family: 'HanHei SC', 'PingFang SC', 'Helvetica Neue Thin', 'Helvetica', 'STHeitiSC-Light', 'Arial', sans-serif;
+        font-weight: 100;
+        color: #666;
+
       }
 
     }

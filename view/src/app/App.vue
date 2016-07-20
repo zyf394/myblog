@@ -30,6 +30,8 @@
   body {
     width: 100%;
     height: 100%;
+    font-weight: normal;
+    font-family: 'HanHei SC', 'PingFang SC', 'Helvetica Neue Thin', 'Helvetica', 'STHeitiSC-Light', 'Arial', sans-serif;
   }
 
   #app {
