@@ -24,6 +24,7 @@
       font-weight: 100;
       text-align: center;
       font-family: "Helvetica Neue", Helvetica, 'Source Sans Pro',  Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
   }
 </style>
