@@ -4,7 +4,7 @@
     <div class="wrap" v-show="hasArticle" >
       <header>
         <h1 class="article-title">{{article.title}}</h1>
-        <p class="article-info">
+        <p class="article-info" v-if="article.title">
           <i class="iconfont icon-01"></i>{{article.author}}
           <time class="iconfont icon-06"></time>{{article.publishTime | formatTime}}
         </p>
