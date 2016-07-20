@@ -1,7 +1,7 @@
 <template>
   <main>
     <div><i class="iconfont icon-51"></i></div>
-    <h1>Sorry,there is no content in here currently...</h1>
+    <h1>Sorry,there is no content here currently...</h1>
   </main>
 </template>
 <style scoped>
