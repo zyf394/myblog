@@ -22,7 +22,7 @@
       return {
         article: {
           title: '',
-          content: '',
+          content: '加载中...',
           author: '',
           publishTime: ''
         },
