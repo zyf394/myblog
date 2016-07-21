@@ -9,11 +9,15 @@
 <script>
   import MenuComponent from './components/Menu'
   import FooterComponent from './components/Footer'
+  import FastClick from 'fastclick'
 
   export default {
     components: {
       MenuComponent,
       FooterComponent
+    },
+    ready () {
+      FastClick.attach(document.body, {})
     }
   }
 </script>

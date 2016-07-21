@@ -53,12 +53,22 @@
     },
     ready () {
       var me = this
-      var navList = document.querySelector('.mobile-nav-list')
+      // var navList = document.querySelector('.mobile-nav-list')
       var navSwitchBtn = document.querySelector('.mobile-bar > i')
       document.addEventListener('click', function (event) {
         var target = event.target
-        var eventPath = event.path
-        if (!eventPath.includes(navList) && target !== navSwitchBtn) {
+        // var eventPath = event.path
+        var isInNavList = true
+        var isNavSwitchBtn = target === navSwitchBtn
+        while (target.className.indexOf('mobile-nav-list') === -1) {
+          target = target.parentNode
+          isInNavList = false
+          if (target === document) {
+            break
+          }
+        }
+        console.log(isInNavList)
+        if (!isInNavList && !isNavSwitchBtn) {
           me.menuOpen = false
         }
       })
