@@ -50,6 +50,18 @@
       routeOut: function () {
         this.menuOpen = false
       }
+    },
+    ready () {
+      var me = this
+      var navList = document.querySelector('.mobile-nav-list')
+      var navSwitchBtn = document.querySelector('.mobile-bar > i')
+      document.addEventListener('click', function (event) {
+        var target = event.target
+        var eventPath = event.path
+        if (!eventPath.includes(navList) && target !== navSwitchBtn) {
+          me.menuOpen = false
+        }
+      })
     }
   }
 </script>

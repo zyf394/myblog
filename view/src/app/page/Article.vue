@@ -31,9 +31,10 @@
     },
     watch: {
       'article.content': function (val, oldVal) {
-        document.querySelectorAll('pre code').forEach(block => {
-          hljs.highlightBlock(block)
-        })
+        var codeEles = document.querySelectorAll('pre code')
+        for (var i = 0; i < codeEles.length; i++) {
+          hljs.highlightBlock(codeEles[i])
+        }
       }
     },
     methods: {
