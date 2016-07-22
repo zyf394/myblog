@@ -31,7 +31,11 @@
     methods: {
       getArticles () {
         var me = this
-        this.$http.post('/api/article', {}).then((response) => {
+        var postData = {
+          page: 1,
+          pageSize: 5
+        }
+        this.$http.post('/api/article', postData).then((response) => {
           var resData = response.data
           if (resData.length) {
             me.articles = resData

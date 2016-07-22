@@ -7,6 +7,8 @@
                v-on:input="inputTitle">
         <button class="content-save" v-on:click="saveArticle">保存</button>
         <button class="content-publish" v-on:click="saveArticle('publish')">发布</button>
+        <button class="content-delete" v-on:click="delArticle">删除</button>
+
       </header>
       <section class="content-area">
         <section class="content-edit">
@@ -61,7 +63,6 @@
         this.article.content = event.target.value
       },
       saveArticle: function (type) {
-        var me = this
         var postData = {
           id: this.$route.params.id || 0,
           author: 'shuiyi',
@@ -69,21 +70,53 @@
           content: this.article.content,
           status: type === 'publish' ? 2 : 1
         }
-        this.$http.post('/api/article', postData).then((response) => {
+        if (postData.id === 0) {
+          this.addArticle(postData)
+        } else {
+          this.editArticle(postData)
+        }
+      },
+      addArticle (postData) {
+        var me = this
+        this.$http.post('/api/article/add', postData).then((response) => {
           var resData = response.data
-          var article
-          if (me.$route.params.id) {
-            article = resData[me.$route.params.id - 1]
-          } else {
-            article = resData[resData.length - 1]
-          }
+          var article = resData[resData.length - 1]
           me.article = {
             id: article.id,
             title: article.title,
             content: article.content,
             status: article.status
           }
-          !me.$route.params.id && window.router.go('/edit/' + article.id)
+          !me.$route.params.id && window.router.go('/edit/' + article.id) // 添加文章后跳转到编辑文章页
+        }, (err) => {
+          console.log(err)
+        })
+      },
+      editArticle (postData) {
+        var me = this
+        this.$http.post('/api/article/edit', postData).then((response) => {
+          var resData = response.data
+          var article = resData[me.$route.params.id - 1]
+          me.article = {
+            id: article.id,
+            title: article.title,
+            content: article.content,
+            status: article.status
+          }
+        }, (err) => {
+          console.log(err)
+        })
+      },
+      delArticle () {
+        var me = this
+        var postData = {
+          id: me.article.id
+        }
+        this.$http.post('/api/article/del', postData).then((response) => {
+          var resData = response.data
+          if (resData.errno === 0) {
+            window.router.go('/articles')
+          }
         }, (err) => {
           console.log(err)
         })
@@ -196,9 +229,12 @@
           }
 
           &.content-save {
-            right: 110px;
+            right: 180px;
           }
           &.content-publish {
+            right: 110px;
+          }
+          &.content-delete {
             right: 40px;
           }
         }
