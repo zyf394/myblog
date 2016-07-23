@@ -40,7 +40,7 @@
     methods: {
       getArticles (id) {
         var me = this
-        this.$http.post('/api/article', {id: id}).then((response) => {
+        this.$http.post('/api/article/index', {id: id}).then((response) => {
           var resData = response.data
           if (resData.length) {
             me.article = response.data[0]

@@ -1,6 +1,6 @@
 <template>
   <footer class="blog-footer">
-    <section class="copyright">水乙的博客 © 2016</section><section class="poweredby">Proudly published with Shuiyi</section>
+    <section class="copyright">水乙的博客 © 2016</section><section class="poweredby">Published by Shuiyi</section>
   </footer>
 </template>
 <style rel="stylesheet/less" type="text/css" lang="less" scoped>

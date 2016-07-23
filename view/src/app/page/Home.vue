@@ -6,7 +6,6 @@
   import HeaderComponent from '../components/Header'
   import ContentComponent from '../components/Content'
   import FooterComponent from '../components/Footer'
-
   export default{
     data () {
       return {

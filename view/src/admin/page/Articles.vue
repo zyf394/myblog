@@ -6,7 +6,6 @@
   export default{
     data () {
       return {
-        msg: 'hello vue',
         articles: [1]
       }
     },
@@ -16,7 +15,7 @@
     methods: {
       getArticles: function () {
         var me = this
-        this.$http.post('/api/article', {}).then((response) => {
+        this.$http.post('/api/article/index', {}).then((response) => {
           me.articles = response.data
         },
           (err) => {

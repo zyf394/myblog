@@ -123,7 +123,7 @@
       },
       getArticles: function (id) {
         var me = this
-        this.$http.post('/api/article', {id: id}).then((response) => {
+        this.$http.post('/api/article/index', {id: id}).then((response) => {
           var article = response.data[0]
           me.article = {
             id: article.id,

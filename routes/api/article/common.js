@@ -76,14 +76,22 @@ module.exports = {
             me.responseDate(res, err, docs)
         })
     },
-    findByPage: function (res, page, pageSize) {
+    findByPage: function (res, options) {
         var me = this,
-            skipCount;
+            skipCount,
+            page = options.page || 0,
+            pageSize = options.pageSize || 10,
+            query = {};
 
-        pageSize = pageSize ? pageSize : 10
-
+        for(var key in options){
+            if (key !== 'page' && key !== 'pageSize'){
+                query[key] = options[key]
+            }
+        }
+        
         skipCount = (page - 1) * pageSize
-        Article.find({}).limit(pageSize).skip(skipCount).exec(function (err, docs) {
+
+        Article.find(query).limit(pageSize).skip(skipCount).exec(function (err, docs) {
             me.responseDate(res, err, docs)
         })
     },

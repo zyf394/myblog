@@ -14,14 +14,25 @@
         </p>
       </div>
     </article>
+    <load-more-component
+      :loading="loading"
+      :nomore="nomore"
+      v-on:click="getArticles"></load-more-component>
   </div>
 </template>
 <script type="text/ecmascript-6">
   import showdown from 'showdown'
+  import LoadMoreComponent from '../components/LoadMore'
 
-  export default{
+  export default {
+    components: {
+      LoadMoreComponent
+    },
     data () {
       return {
+        page: 1,
+        loading: false,
+        nomore: false,
         articles: [{
           item: '加载中...',
           content: '加载中...'
@@ -32,18 +43,31 @@
       getArticles () {
         var me = this
         var postData = {
-          page: 1,
-          pageSize: 5
+          page: me.page,
+          pageSize: 5,
+          status: 2
         }
-        this.$http.post('/api/article', postData).then((response) => {
-          var resData = response.data
-          if (resData.length) {
-            me.articles = resData
+        if (!me.nomore) {
+          me.loading = true
+          this.$http.post('/api/article/index', postData).then((response) => {
+            var resData = response.data
+            if (resData.length) {
+              if (resData.length < 5) me.nomore = true
+              if (me.page === 1) {
+                me.articles = resData
+              } else {
+                me.articles = me.articles.concat(resData)
+              }
+              me.page++
+            } else {
+              me.nomore = true
+            }
+            me.loading = false
+          }, (err) => {
+            console.log(err)
           }
-        }, (err) => {
-          console.log(err)
+          )
         }
-        )
       },
       markedContent: function ($index) {
         var me = this
@@ -70,27 +94,27 @@
     color: #2c3e50;
     text-align: left;
 
-    .content-box{
+    .content-box {
       padding: 3rem 0;
       border-bottom: 1px solid #e5e5e5;
-      .list-title{
+      .list-title {
         margin-bottom: 0.5rem;
         font-size: 1.2rem;
         font-weight: normal;
         text-overflow: ellipsis;
-        white-space:nowrap;
+        white-space: nowrap;
         overflow: hidden;
 
-        a{
+        a {
           color: #333;
           font-weight: normal;
         }
       }
-      .wrap{
+      .wrap {
         line-height: 1.5;
         color: #666;
 
-        .article-summary{
+        .article-summary {
           font-size: 0.9rem;
           font-weight: 100;
           max-height: 2.7rem;
@@ -98,25 +122,25 @@
           text-overflow: ellipsis;
         }
 
-        .article-info{
+        .article-info {
           margin-top: 0.5rem;
           font-size: 0.5rem;
           color: #b5b5b5;
           font-weight: 100;
 
-          i,time{
+          i, time {
             font-size: 0.5rem;
             color: #b5b5b5;
             margin-right: 0.2rem;
           }
-          i::before{
+          i::before {
             color: #308ddf;
           }
         }
 
-        .article-arrow{
+        .article-arrow {
           font-weight: 100;
-          font-family: "Helvetica Neue", Helvetica, 'Source Sans Pro',  Arial, sans-serif;
+          font-family: "Helvetica Neue", Helvetica, 'Source Sans Pro', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
         }
       }
