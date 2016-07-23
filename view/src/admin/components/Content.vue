@@ -96,7 +96,7 @@
         var me = this
         this.$http.post('/api/article/edit', postData).then((response) => {
           var resData = response.data
-          var article = resData[me.$route.params.id - 1]
+          var article = resData[0]
           me.article = {
             id: article.id,
             title: article.title,

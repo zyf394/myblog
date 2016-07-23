@@ -2,18 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7658e826-6816-46ae-98b1-be9d8f7225b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/api/article/index/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/src/app/components/LoadMore.vue" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/view/dist/static/js/admin.8bbac56f6dbe3220c1dc.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/view/dist/static/js/admin.8bbac56f6dbe3220c1dc.js.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/view/dist/static/js/admin.8bbac56f6dbe3220c1dc.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/view/dist/static/js/manifest.7e32ed32e95b634c6b55.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/view/dist/static/js/manifest.7e32ed32e95b634c6b55.js.map" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api/article/common.js" afterPath="$PROJECT_DIR$/routes/api/article/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api/article/index.js" afterPath="$PROJECT_DIR$/routes/api/article/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api/index.js" afterPath="$PROJECT_DIR$/routes/api/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/dist/admin.html" afterPath="$PROJECT_DIR$/view/dist/admin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/dist/index.html" afterPath="$PROJECT_DIR$/view/dist/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/src/admin/components/Content.vue" afterPath="$PROJECT_DIR$/view/src/admin/components/Content.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/src/admin/page/Articles.vue" afterPath="$PROJECT_DIR$/view/src/admin/page/Articles.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/src/app/components/Content.vue" afterPath="$PROJECT_DIR$/view/src/app/components/Content.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/src/app/components/Footer.vue" afterPath="$PROJECT_DIR$/view/src/app/components/Footer.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/src/app/page/Article.vue" afterPath="$PROJECT_DIR$/view/src/app/page/Article.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/src/app/page/Home.vue" afterPath="$PROJECT_DIR$/view/src/app/page/Home.vue" />
     </list>
     <ignored path="myblog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Content.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Content.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/view/src/admin/components/Content.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="222" column="0" selection-start-line="222" selection-start-column="0" selection-end-line="228" selection-end-column="11" />
+            <state relative-caret-position="301">
+              <caret line="105" column="16" selection-start-line="105" selection-start-column="16" selection-end-line="105" selection-end-column="16" />
               <folding>
                 <element signature="e#1249#1280#0" expanded="true" />
               </folding>
@@ -90,10 +87,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Content.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Content.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/src/app/components/Content.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
+            <state relative-caret-position="415">
               <caret line="65" column="23" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
               <folding>
                 <element signature="e#827#858#0" expanded="true" />
@@ -191,7 +188,6 @@
         <option value="$PROJECT_DIR$/routes/api/upload/index.js" />
         <option value="$PROJECT_DIR$/routes/api/index.js" />
         <option value="$PROJECT_DIR$/view/src/app/page/Article.vue" />
-        <option value="$PROJECT_DIR$/view/src/admin/components/Content.vue" />
         <option value="$PROJECT_DIR$/routes/api/article/index.js" />
         <option value="$PROJECT_DIR$/view/src/admin/page/Articles.vue" />
         <option value="$PROJECT_DIR$/view/src/app/page/Home.vue" />
@@ -200,6 +196,7 @@
         <option value="$PROJECT_DIR$/routes/api/article/index/index.js" />
         <option value="$PROJECT_DIR$/routes/api/article/common.js" />
         <option value="$PROJECT_DIR$/view/src/app/components/Content.vue" />
+        <option value="$PROJECT_DIR$/view/src/admin/components/Content.vue" />
       </list>
     </option>
   </component>
@@ -701,12 +698,12 @@
       <workItem from="1468511823033" duration="4408000" />
       <workItem from="1468554251026" duration="5532000" />
       <workItem from="1468600985062" duration="21848000" />
-      <workItem from="1468902818638" duration="52906000" />
+      <workItem from="1468902818638" duration="53541000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="237723000" />
+    <option name="totallyTimeSpent" value="238358000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="728" extended-state="0" />
@@ -1057,7 +1054,7 @@
         <state relative-caret-position="120">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="e#145#195#0" expanded="true" />
+            <element signature="e#145#195#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1083,16 +1080,6 @@
         <state relative-caret-position="45">
           <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/src/admin/components/Content.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="222" column="0" selection-start-line="222" selection-start-column="0" selection-end-line="228" selection-end-column="11" />
-          <folding>
-            <element signature="e#1249#1280#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1174,10 +1161,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/src/app/components/Content.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
+        <state relative-caret-position="415">
           <caret line="65" column="23" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
           <folding>
             <element signature="e#827#858#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/src/admin/components/Content.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="105" column="16" selection-start-line="105" selection-start-column="16" selection-end-line="105" selection-end-column="16" />
+          <folding>
+            <element signature="e#1249#1280#0" expanded="true" />
           </folding>
         </state>
       </provider>
