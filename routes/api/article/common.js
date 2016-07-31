@@ -66,7 +66,7 @@ module.exports = {
         var me = this;
         if (typeof options === 'undefined') options = {};
 
-        Article.find(options, sort({'id':-1}), function (err, docs) {
+        Article.find(options).sort({'publishTime':-1}).exec(function (err, docs) {
             me.responseDate(res, err, docs)
         })
     },
@@ -91,7 +91,7 @@ module.exports = {
         
         skipCount = (page - 1) * pageSize
 
-        Article.find(query).sort({'id':-1}).limit(pageSize).skip(skipCount).exec(function (err, docs) {
+        Article.find(query).sort({'publishTime':-1}).limit(pageSize).skip(skipCount).exec(function (err, docs) {
             me.responseDate(res, err, docs)
         })
     },
