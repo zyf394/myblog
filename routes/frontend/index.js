@@ -10,18 +10,18 @@ var profile = require('./profile'),
 
 /* GET home page. */
 function frontendRoutes() {
-    router.get('/', function(req, res, next) {
-        var indexPath = path.resolve(__dirname,'../../view/dist/index.html');
-         fs.readFile(indexPath, function (err, data) {
-             if(err) console.log(err)
-             res.end(data)
-         })
-        // res.render('index', { title: 'Express' });
-    });
-    router.get('/users', users);
+    router.get('/', readIndexHTML);
+    router.get('/article/:id', readIndexHTML);
     router.get('/profile', profile);
-
     return router
+}
+
+function readIndexHTML(req, res, next) {
+    var indexPath = path.resolve(__dirname, '../../view/dist/index.html');
+     fs.readFile(indexPath, function (err, data) {
+         if(err) console.log(err)
+         res.end(data)
+     })
 }
 
 module.exports = frontendRoutes;
