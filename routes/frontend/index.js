@@ -12,9 +12,9 @@ var profile = require('./profile'),
 function frontendRoutes() {
     router.get('/', readIndexHTML);
     router.get('/article/:id', readIndexHTML);
-    router.get('/profile', readIndexHTML);
+    router.get('/list', readIndexHTML);
     router.get('/about', readIndexHTML);
-    router.get('/*', read404)
+    router.get('*', readIndexHTML)
     return router
 }
 
