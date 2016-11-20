@@ -12,7 +12,9 @@ var profile = require('./profile'),
 function frontendRoutes() {
     router.get('/', readIndexHTML);
     router.get('/article/:id', readIndexHTML);
-    router.get('/profile', profile);
+    router.get('/profile', readIndexHTML);
+    router.get('/about', readIndexHTML);
+    router.get('/*', read404)
     return router
 }
 
@@ -23,5 +25,7 @@ function readIndexHTML(req, res, next) {
          res.end(data)
      })
 }
-
+function read404(req, res, next) {
+    res.end("Sorry, can't find any page");
+}
 module.exports = frontendRoutes;

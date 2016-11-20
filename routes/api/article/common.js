@@ -67,13 +67,13 @@ module.exports = {
         if (typeof options === 'undefined') options = {};
 
         Article.find(options).sort({'publishTime':-1}).exec(function (err, docs) {
-            me.responseDate(res, err, docs)
+            me.responseData(res, err, docs)
         })
     },
     findOneById: function (res, id) {
         var me = this;
         Article.find({id: id}, function (err, docs) {
-            me.responseDate(res, err, docs)
+            me.responseData(res, err, docs)
         })
     },
     findByPage: function (res, options) {
@@ -92,10 +92,36 @@ module.exports = {
         skipCount = (page - 1) * pageSize
 
         Article.find(query).sort({'publishTime':-1}).limit(pageSize).skip(skipCount).exec(function (err, docs) {
-            me.responseDate(res, err, docs)
+            me.responseData(res, err, docs)
         })
     },
-    responseDate: function (res, err, docs) {
+    findAllListByYears: function (res, options) {
+        var me = this,
+            query = {};
+
+        for(var key in options){
+            query[key] = options[key]
+        }
+
+        Article.find(query).sort({'publishTime':-1}).exec(function (err, docs) {
+            var newDocs = {};
+            docs.forEach(function (doc, index) {
+                console.log(index);
+                var year = new Date(doc.publishTime).getFullYear() + "年";
+                if (newDocs[year]) {
+                    newDocs[year].push(doc);
+                }else{
+                    newDocs[year] = [];
+                    newDocs[year].push(doc);
+                }
+            });
+            res.writeHead(200, {
+                'Content-Type': 'application/json;charset=UTF-8'
+            });
+            res.end(JSON.stringify(newDocs))
+        })
+    },
+    responseData: function (res, err, docs) {
         if (err) {
             res.end(JSON.stringify(err))
         } else {
