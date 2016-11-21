@@ -14,7 +14,7 @@ function frontendRoutes() {
     router.get('/article/:id', readIndexHTML);
     router.get('/list', readIndexHTML);
     router.get('/about', readIndexHTML);
-    router.get('/avatar/*', readPublic);
+    // router.get('/avatar/*', readPublic);
     router.get('*', readIndexHTML)
     return router
 }
