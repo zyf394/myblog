@@ -61,14 +61,14 @@ function spiderAllArticles() {
 }
 
 function spiderOneArticle(index) {
-    var currentLink = articleList[index]
+    var currentLink = articleList[index];
+    console.log('spidering url:' + currentLink);
     currentLink && superagent.get(currentLink)
         .end(function (err, res) {
             var $ = cheerio.load(res.text);
-            var articleBody = /<div\s+id\s*=\s*"cnblogs_post_body">([\s\S]*)<\/div><div\s+id\s*=\s*"MySignature">/i.exec(res.text)[1];
-            var publishTime = $('#post-date')[0].children[0].data;
-            var title = $('#cb_post_title_url')[0].children[0].data
-
+            var articleBody = $('#cnblogs_post_body').html();
+            var publishTime = $('#post-date').text();
+            var title = $('#cb_post_title_url').text();
             var article;
             Article.find({}, function (err, docs) {
                 var lastItemId = docs[docs.length - 1] ? docs[docs.length - 1].id : 0;
