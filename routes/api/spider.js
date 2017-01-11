@@ -7,7 +7,7 @@ var EventProxy = require('eventproxy');
 var targetUrl = 'http://www.cnblogs.com/shuiyi/default.html';
 var EventEmitter = require('events').EventEmitter;
 var event = new EventEmitter();
-var Article = require('./db');
+var Article = require('../../db');
 
 
 var pageNum = 1;
@@ -71,9 +71,7 @@ function spiderOneArticle(index) {
             var title = $('#cb_post_title_url').text();
             var article;
             Article.find({}, function (err, docs) {
-                var lastItemId = docs[docs.length - 1] ? docs[docs.length - 1].id : 0;
                 article = new Article({
-                    id: lastItemId + 1,
                     author: 'shuiyi',
                     title: title,
                     content: toMarkdown(articleBody, {
@@ -89,9 +87,12 @@ function spiderOneArticle(index) {
                     status: 1,
                     publishTime: new Date(publishTime)
                 });
-                article.save();
-                console.log('db save success:【' + title + '】成功保存到数据库')
-                spiderOneArticle(index + 1);
+                article.save(function(err, docs){
+                    if (err) console.log(err)
+                    spiderOneArticle(index + 1);
+                    console.log('db save success:【' + title + '】成功保存到数据库')
+                });
+ 
 
             });
         });

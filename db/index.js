@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
-var uri = 'mongodb://localhost:27017';
-mongoose.connect(uri);
+var auth = require('./auth');
+var uri = 'mongodb://' + auth.username + ':' + auth.password + '@localhost:27017';
+var connect = mongoose.connect(uri);
 
 var ArticleSchema = new mongoose.Schema({
     id: Number,

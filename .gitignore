@@ -4,3 +4,4 @@ node_modules/
 view/node_modules/
 npm-debug.log
 .idea/
+db/auth.js
