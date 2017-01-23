@@ -101,13 +101,20 @@ module.exports = {
         Article.find(query).sort({'publishTime':-1}).exec(function (err, docs) {
             var newDocs = {};
             docs.forEach(function (doc, index) {
-                console.log(index);
                 var year = new Date(doc.publishTime).getFullYear() + "年";
+                var outputDoc = {
+                    id: doc._id,
+                    author: doc.author,
+                    title: doc.title,
+                    content: doc.content,
+                    status: doc.status,
+                    publishTime: doc.publishTime
+                }
                 if (newDocs[year]) {
-                    newDocs[year].push(doc);
+                    newDocs[year].push(outputDoc);
                 }else{
                     newDocs[year] = [];
-                    newDocs[year].push(doc);
+                    newDocs[year].push(outputDoc);
                 }
             });
             res.writeHead(200, {
