@@ -1,1 +1,2 @@
-sudo forever start --minUptime 100  --spinSleepTime 100 ./bin/www
+#!/bin/bash
+pm2 start ./bin/www --name myblog
