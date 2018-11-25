@@ -59,9 +59,7 @@ module.exports = {
         var me = this;
 
         if (typeof options === 'undefined') options = {};
-
         Article.find(options).sort({}).exec(function (err, docs) {
-            console.log('docs',docs)
             me.responseData(res, err, docs)
         })
     },

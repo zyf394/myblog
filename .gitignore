@@ -4,4 +4,5 @@ node_modules/
 view/node_modules/
 npm-debug.log
 .idea/
+.vscode/
 db/auth.js
